@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiige Cousins Welfare · Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #d9e6b3 0%, #b7c9a2 100%);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .welfare-card {
+            max-width: 780px;
+            width: 100%;
+            background: #fefaf0;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header-kiige {
+            background: #2c5f2d;
+            padding: 1.8rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid #ffb347;
+        }
+
+        .header-kiige h1 {
+            font-size: 1.9rem;
+            color: #fff9e8;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .header-kiige h1 span {
+            background: #ffb347;
+            padding: 0.2rem 1rem;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            color: #2c3e1f;
+        }
+
+        .form-container {
+            padding: 2rem 2rem 1.8rem;
+        }
+
+        .row-duo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .row-duo .input-group {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .input-group {
+            margin-bottom: 1.4rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin-bottom: 0.4rem;
+            color: #3a2c1f;
+        }
+
+        input, select {
+            background: #ffffff;
+            border: 1.5px solid #e2dccd;
+            border-radius: 20px;
+            padding: 0.75rem 1.2rem;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: #ffb347;
+            box-shadow: 0 0 0 3px rgba(255, 180, 71, 0.2);
+        }
+
+        .btn-create {
+            background: #2c5f2d;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0.9rem 1.8rem;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.2s;
+            margin-top: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-create:hover {
+            background: #1f4520;
+            transform: translateY(-2px);
+        }
+
+        .message-area {
+            background: #f2ecdb;
+            border-radius: 28px;
+            padding: 1rem 1.3rem;
+            margin: 1rem 0 1.2rem;
+            font-size: 0.95rem;
+            border-left: 5px solid #ffb347;
+            transition: all 0.2s;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6b5a44;
+            margin-top: 0.5rem;
+        }
+
+        .error-input {
+            border-color: #d9534f !important;
+            background-color: #fff8f8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="welfare-card">
+    <div class="header-kiige">
+        <h1>
+            🤝 Kiige Cousins 
+            <span>Welfare</span>
+        </h1>
+    </div>
+
+    <div class="form-container">
+        <!-- WORKING FORM - DO NOT CHANGE IDs -->
+        <form id="signupForm">
+            <div class="row-duo">
+                <div class="input-group">
+                    <label for="firstname">✨ first name</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="e.g., Wairimu" required>
+                </div>
+                <div class="input-group">
+                    <label for="lastname">🌟 last name</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="e.g., Kiige" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="email">📧 email address</label>
+                <input type="email" id="email" name="email" placeholder="cousin@kiige.welfare" required>
+            </div>
+
+            <div class="row-duo">
+                <div class="input-group">
+                    <label for="dob">📅 date of birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="input-group">
+                    <label for="gender">⚥ gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>– select –</option>
+                        <option value="female">female</option>
+                        <option value="male">male</option>
+                        <option value="other">other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">📞 phone (optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+254 ...">
+            </div>
+
+            <button type="submit" class="btn-create" id="createAccountBtn">
+                ✨ create account
+            </button>
+        </form>
+
+        <div id="liveMessage" class="message-area">
+            💬 welcome, cousin. complete the form.
+        </div>
+
+        <hr>
+        <div class="footer-note">
+            🌍 kiige cousins welfare · unity & support
+        </div>
+    </div>
+</div>
+
+<script>
+    // BACKEND API URL
+    const API_URL = 'http://localhost:5000/api';
+    
+    // Get form element
+    const form = document.getElementById('signupForm');
+    const messageDiv = document.getElementById('liveMessage');
+    
+    // Function to show message
+    function showMessage(msg, isError = false) {
+        messageDiv.innerHTML = msg;
+        if (isError) {
+            messageDiv.style.borderLeftColor = '#d9534f';
+            messageDiv.style.backgroundColor = '#fee9e8';
+        } else {
+            messageDiv.style.borderLeftColor = '#2c5f2d';
+            messageDiv.style.backgroundColor = '#e8f5e8';
+        }
+    }
+    
+    // Show loading
+    function showLoading() {
+        messageDiv.innerHTML = '⏳ Processing registration... Please wait';
+        messageDiv.style.borderLeftColor = '#ffb347';
+        messageDiv.style.backgroundColor = '#f2ecdb';
+    }
+    
+    // Handle form submission
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault(); // STOP from refreshing page
+        
+        console.log('Form submitted!'); // Check if this appears in console
+        
+        // Get values - MAKE SURE IDs MATCH
+        const firstName = document.getElementById('firstname').value.trim();
+        const lastName = document.getElementById('lastname').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const dob = document.getElementById('dob').value;
+        const gender = document.getElementById('gender').value;
+        const phone = document.getElementById('phone').value.trim();
+        
+        // Debug: See what values you're getting
+        console.log('First Name:', firstName);
+        console.log('Last Name:', lastName);
+        console.log('Email:', email);
+        console.log('DOB:', dob);
+        console.log('Gender:', gender);
+        console.log('Phone:', phone);
+        
+        // VALIDATION - Check each field
+        if (!firstName) {
+            showMessage('❌ First name is required', true);
+            document.getElementById('firstname').focus();
+            return;
+        }
+        
+        if (!lastName) {
+            showMessage('❌ Last name is required', true);
+            document.getElementById('lastname').focus();
+            return;
+        }
+        
+        if (!email) {
+            showMessage('❌ Email address is required', true);
+            document.getElementById('email').focus();
+            return;
+        }
+        
+        if (!email.includes('@') || !email.includes('.')) {
+            showMessage('❌ Please enter a valid email address', true);
+            document.getElementById('email').focus();
+            return;
+        }
+        
+        if (!dob) {
+            showMessage('❌ Date of birth is required', true);
+            document.getElementById('dob').focus();
+            return;
+        }
+        
+        if (!gender || gender === '') {
+            showMessage('❌ Please select your gender', true);
+            document.getElementById('gender').focus();
+            return;
+        }
+        
+        // If all validation passes
+        showLoading();
+        
+        // Prepare data to send
+        const formData = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            dateOfBirth: dob,
+            gender: gender,
+            phone: phone || ''
+        };
+        
+        try {
+            console.log('Sending to backend:', formData);
+            
+            const response = await fetch(`${API_URL}/members/register`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const result = await response.json();
+            console.log('Response from backend:', result);
+            
+            if (response.ok) {
+                // Success!
+                showMessage(`✅ ${result.message} Total members: ${result.totalMembers}. Welcome, ${firstName}! 🎉`);
+                
+                // Clear the form
+                form.reset();
+                
+                // Optional: Update member count display if exists
+                if (document.getElementById('baseMemberCount')) {
+                    document.getElementById('baseMemberCount').value = result.totalMembers;
+                }
+                
+                // Flash green success
+                messageDiv.style.backgroundColor = '#d4edda';
+                setTimeout(() => {
+                    messageDiv.style.backgroundColor = '#e8f5e8';
+                }, 1000);
+                
+            } else {
+                // Error from backend
+                showMessage(`❌ ${result.message || 'Registration failed. Please try again.'}`, true);
+            }
+            
+        } catch (error) {
+            console.error('Connection error:', error);
+            showMessage('❌ Cannot connect to backend server. Make sure it\'s running on http://localhost:5000', true);
+        }
+    });
+    
+    // Test connection on page load
+    async function testConnection() {
+        try {
+            const response = await fetch(`${API_URL}/members/count`);
+            const data = await response.json();
+            console.log('Backend connected! Member count:', data.count);
+            showMessage(`✅ Connected to backend! Current members: ${data.count}. Fill the form to register.`);
+            setTimeout(() => {
+                if (messageDiv.innerHTML.includes('Connected')) {
+                    messageDiv.innerHTML = '💬 welcome, cousin. complete the form.';
+                    messageDiv.style.borderLeftColor = '#ffb347';
+                    messageDiv.style.backgroundColor = '#f2ecdb';
+                }
+            }, 3000);
+        } catch (error) {
+            console.error('Backend not reachable:', error);
+            showMessage('⚠️ Backend server not running. Please start with: node server.js', true);
+        }
+    }
+    
+    // Test connection when page loads
+    testConnection();
+</script>
+
+</body>
+</html>
